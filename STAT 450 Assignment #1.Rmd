@@ -1,0 +1,36 @@
+---
+title: 'STAT 450 Assignment #1 - Luc Hamel'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+My name is Luc Hamel, I'm a 4th year student majoring in Statistics and minoring in Economics. If everything goes right, I'll graduate this May! I play baseball, as well as coach youth baseball, and I enjoy trail running in my spare time. My passion for statistics began at a young age from studying sports boxscores in the newspaper every morning. I'm an avid follower of the growing role of data in sports, and I will be attending the Sloan Sports Analytics Conference at MIT this February.  
+
+## Favourite Equation
+
+My favourite equation is the equation to calculate Fielding Independent Pitching (FIP) in baseball. Common pitching statistics like ERA are quite noisy as there are many external factors not controlled by the pitcher (such as fielding) that influence these pitching stats. FIP aims to only measure events that are controlled by the pitcher, and has been shown to be a more accurate predictor of future success than almost all conventional statistics. It is unique in it's relative simplicity compared to many sabermetric stats.
+
+$$FIP = \frac{13*HR + 3*(HBP+BB) - 2*K}{IP} + c$$
+
+## Favourite Data Set
+
+My favourite data set is the Lahman's Baseball Database, as it is an incredible historical database for baseball history, containing batting, fielding, pitching, and other data dating back to 1871. The data set I chose from here is the Salary data set, which lists the annual salary in USD for every MLB player from 1985-2015
+
+Below are the first 5 rows of the data set.
+```{r salary1, echo=FALSE}
+salary <- read.csv("Salaries.csv")
+salary[c(1:5),]
+```
+
+
+I've included a histogram of the player salaries below to demonstrate the extreme left-skewed nature of the salaries in baseball.
+```{r salary, echo=FALSE}
+hist(salary$salary, col = "light blue", breaks = 40,
+     main = "Distribution of MLB Salaries from 1985-2015", 
+     xlab = "Salary in USD")
+```
